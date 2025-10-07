@@ -51,7 +51,7 @@ const getAllLevels = async (id) => {
                 <div class="bg-white py-5 flex flex-col border-white shadow-md  text-lg poppins items-center rounded-xl gap-5">
                  <p class="font-semibold text-2xl">${item.word}</p>
                  <p>Meaning/Pronounciation</p>
-                 <p class="text-gray-500">"আগ্রহী/ইগার"</p>
+                 <p class="text-gray-500">${item.meaning}/${item.pronunciation}</p>
                  <div class="flex w-full px-5 justify-between">
                     <div>
                         <button class="btn"><i class="fa-solid fa-circle-info"></i></button>
