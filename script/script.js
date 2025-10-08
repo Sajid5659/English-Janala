@@ -66,6 +66,20 @@ const getAllLevels = async (id) => {
 
   const response = await fetch(`https://openapi.programming-hero.com/api/level/${id}`);
   const data = await response.json();
+
+  if ( data.data.length === 0 ) {
+    const lessonCard = document.getElementById('lesson-card');
+    lessonCard.innerHTML = '';
+    lessonCard.classList.remove('bg-gray-100');
+    const div = document.createElement('div');
+    div.innerHTML = `
+      <div class="bg-gray-200 flex justify-center items-center text-center">
+        <p class="text-center text-4xl font-bold p-30">No Word Found!!</p>
+      </div>`;
+    defaultText.append(div);
+    return;
+  }
+  // console.log(data.data.length);
   const lessonCard = document.getElementById('lesson-card');
   lessonCard.innerHTML = '';
   data.data.forEach(item => {
