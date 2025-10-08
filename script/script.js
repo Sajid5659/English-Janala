@@ -4,6 +4,7 @@ const getAllLessons = async () => {
   data.data.forEach(item => {
     const divContainer = document.getElementById('div-container');
     const div = document.createElement('div');
+    console.log(item);
     div.innerHTML = `
       <div>
         <button id="btn-${item.level_no}" 
@@ -50,7 +51,7 @@ const getAllLevels = async (id) => {
     }
 
   //  lesson logic
-  if (id !== 2) {
+  if (id === 4 || id ===7) {
     const lessonCard = document.getElementById('lesson-card');
     lessonCard.innerHTML = '';
     lessonCard.classList.remove('bg-gray-100');
@@ -63,7 +64,7 @@ const getAllLevels = async (id) => {
     return;
   }
 
-  const response = await fetch('https://openapi.programming-hero.com/api/level/5');
+  const response = await fetch(`https://openapi.programming-hero.com/api/level/${id}`);
   const data = await response.json();
   const lessonCard = document.getElementById('lesson-card');
   lessonCard.innerHTML = '';
